@@ -67,8 +67,8 @@ void delete(node *head, void *data, int (*isequal)(void *, void *)){
 	return;
 }
 
-/*排序*/
-void sort(node *head, int size, int (*compare)(void *, void *)){
+/*冒泡排序*/
+void bubble_sort(node *head, int size, int (*compare)(void *, void *)){
 	if(head -> next == NULL)
 		return;
 	node *ptr = head; 	//工作指针
