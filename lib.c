@@ -5,7 +5,7 @@
 
 /*初始化一个双向链表*/
 node *init(){
-	node *head = (node*)malloc(sizeof(node*));
+	node *head = (node*)malloc(sizeof(node));
 	head -> pre = NULL;
 	head -> next = NULL;
 	
@@ -32,7 +32,7 @@ void insert(node *head, void *data, int size){
 		printf("双向链表中已存在该元素，插入失败!\n");
 		return;
 	}else{		//若不存在，插入节点
-*/		node *new = (node*)malloc(sizeof(node*));	//为插入节点申请空间
+*/		node *new = (node*)malloc(sizeof(node));	//为插入节点申请空间
 		if(!new){
 			printf("为新节点分配空间失败\n");
 			return;
