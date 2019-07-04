@@ -50,20 +50,13 @@ void insert(node *head, void *data, int size){
 }
 
 /*删除节点*/
-void delete(node *head, void *data, int (*isequal)(void *, void *)){	
-	/*查找双向链表中是否存在该元素*/
-	node *p = search(head, data, isequal);
-	if(!p){	//若不存在，则不需删除
-		printf("双向链表中不存在该元素，删除失败!\n");
-		return;
-	}else{		//若存在，删除节点
-		/*删除节点*/
-		p -> pre -> next = p -> next;
-		p -> next -> pre = p -> pre;
-		free(p -> content);
-		free(p);	//释放p所指向节点的空间
-		//printf("删除成功\n");
-	}
+void delete(node *head, node *p){
+	p -> pre -> next = p -> next;
+	if(p -> next)		p -> next -> pre = p -> pre;
+	free(p -> content);
+	free(p);	//释放p所指向节点的空间
+	//printf("删除成功\n");
+	
 	return;
 }
 
